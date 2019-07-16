@@ -19,4 +19,4 @@ after_success:
   - docker push rohitaror/multi-client 
   - docker push rohitaror/multi-nginx
   - docker push rohitaror/multi-server
-  - docker push rohitaror/multi-worker 
+  - docker push rohitaror/multi-worker  
