@@ -1,0 +1,22 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t rohitaror/react-test -f ./client/Dockerfile.dev ./client
+
+script:
+  - docker run rohitaror/react-test npm test -- --coverage
+
+after_success:
+  - docker build -t rohitaror/multi-client ./client
+  - docker build -t rohitaror/multi-nginx ./nginx
+  - docker build -t rohitaror/multi-server ./server
+  - docker build -t rohitaror/multi-worker ./worker
+  
+  - echo "$DOCKER_PASSWORD"  | docker login -u "DOCKER_ID" --password-stdin
+
+  - docker push rohitaror/multi-client
+  - docker push rohitaror/multi-nginx
+  - docker push rohitaror/multi-server
+  - docker push rohitaror/multi-worker
