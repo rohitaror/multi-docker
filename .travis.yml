@@ -16,7 +16,7 @@ after_success:
   
   - echo "$DOCKER_PASSWORD"  | docker login -u "DOCKER_ID" --password-stdin
 
-  - docker push rohiaror/rohitaror:multi-client 
-  - docker push rohiaror/rohitaror:multi-nginx
-  - docker push rohiaror/rohitaror:multi-server
-  - docker push rohiaror/rohitaror:multi-worker 
+  - docker push rohiaror/multi-client 
+  - docker push rohiaror/multi-nginx
+  - docker push rohiaror/multi-server
+  - docker push rohiaror/multi-worker 
