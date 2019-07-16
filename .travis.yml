@@ -14,9 +14,9 @@ after_success:
   - docker build -t rohitaror/multi-server ./server
   - docker build -t rohitaror/multi-worker ./worker
   
-  - echo "$DOCKER_PASSWORD"  | docker login -u "DOCKER_ID" --password-stdin
+  - echo "$DOCKER_PASSWORD"  | docker login -u "$DOCKER_ID" --password-stdin
 
-  - docker push rohiaror/multi-client 
-  - docker push rohiaror/multi-nginx
-  - docker push rohiaror/multi-server
-  - docker push rohiaror/multi-worker 
+  - docker push rohitaror/multi-client 
+  - docker push rohitaror/multi-nginx
+  - docker push rohitaror/multi-server
+  - docker push rohitaror/multi-worker 
