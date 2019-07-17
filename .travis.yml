@@ -9,14 +9,14 @@ script:
   - docker run -e CI=true rohitaror/react-test npm test
 
 after_success:
-  - docker build -t rohitaror/multi-client ./client
-  - docker build -t rohitaror/multi-nginx ./nginx
-  - docker build -t rohitaror/multi-server ./server
-  - docker build -t rohitaror/multi-worker ./worker
+  - docker build -t rohiaror/multi-client ./client
+  - docker build -t rohiaror/multi-nginx ./nginx
+  - docker build -t rohiaror/multi-server ./server
+  - docker build -t rohiaror/multi-worker ./worker
   
   - echo "$DOCKER_PASSWORD"  | docker login -u "$DOCKER_ID" --password-stdin
 
-  - docker push rohitaror/multi-client:latest
+  - docker push rohiaror/multi-client
   # - docker push rohitaror/multi-nginx
   # - docker push rohitaror/multi-server
   # - docker push rohitaror/multi-worker  
